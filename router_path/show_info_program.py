@@ -2,11 +2,10 @@ import cachetools
 from aiogram import Router
 from cachetools import cached
 from aiogram.types import CallbackQuery
-from aiogram.fsm.state import StatesGroup, State
 
 import airtable_table.config
 from airtable_table import tables
-from views import buttons
+from views import buttons, rendering_funcs
 
 
 # settings
@@ -29,8 +28,8 @@ async def show_program_info(callback_query: CallbackQuery):
     print(program)
     await callback_query.message.answer(text=f"""
     <b>{program["fields"]["Название_программы"]}</b>\n
-    <b>Начало программы:</b> {program["fields"]["Даты_начала_программы"]}
-    <b>Окончание программы:</b> {program["fields"]["Дата_окончания_программы"]}
+    <b>Начало программы:</b> {rendering_funcs.format_date(program["fields"]["Даты_начала_программы"])}
+    <b>Конец программы:</b> {rendering_funcs.format_date(program["fields"]["Дата_окончания_программы"])}
     <b>Стоимость:</b> {program["fields"]["Стоимость"]}\n
     {program["fields"]["Описание"]}
     """, parse_mode="HTML", reply_markup=buttons.draw_make_request_buttons(program_id))

@@ -12,7 +12,7 @@ import aiogram.filters as filter
 from cachetools import cached
 
 import config
-from router_path import show_info_program, request_for_yes
+from router_path import show_info_program, request_for_yes, request_for_no
 
 
 # settings to bot
@@ -24,6 +24,7 @@ cache_strategy = cachetools.TTLCache(maxsize=100, ttl=300)
 # connecting routes
 dp.include_router(show_info_program.router)
 dp.include_router(request_for_yes.router)
+dp.include_router(request_for_no.router)
 
 
 @dp.message(filter.Command("start"))

@@ -48,7 +48,7 @@ def draw_make_request_buttons(id_program):
 
 
 def draw_url_request():
-    kb = [[types.InlineKeyboardButton(text="Оставить заявку", url="test.ru")]]
+    kb = [[types.InlineKeyboardButton(text="Оставить заявку", url="https://multiriders.com/request-summer")]]
     keyboard = types.InlineKeyboardMarkup(inline_keyboard=kb)
     return keyboard
 
