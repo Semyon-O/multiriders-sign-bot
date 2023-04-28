@@ -12,6 +12,7 @@ from views import buttons
 class RequestStates(StatesGroup):
     enter_parent = State()
     enter_child = State()
+    enter_phone = State()
 
 
 # settings
@@ -34,5 +35,12 @@ async def enter_child_data(message: Message, state: FSMContext):
 @router.message(StateFilter(RequestStates.enter_child))
 async def finishing_entering(message: Message, state: FSMContext):
     print(message.text)
-    await message.answer("Спасибо, что оставили заявку. В ближайшее время, вам позвонит Михаил")
+    await message.answer("Спасибо, оставьте пожалуйста ваш номер телефона.")
+    await state.set_state(RequestStates.enter_phone)
+
+
+@router.message(StateFilter(RequestStates.enter_phone))
+async def finishing_entering(message: Message, state: FSMContext):
+    print(message.text)
+    await message.answer("Спасибо что оставили вашу заявку. В ближайшее время вам перезвонит Михаил")
     await state.clear()
