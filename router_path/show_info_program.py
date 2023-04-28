@@ -1,5 +1,6 @@
 import cachetools
 from aiogram import Router
+from aiogram.enums import ParseMode
 from cachetools import cached
 from aiogram.types import CallbackQuery
 
