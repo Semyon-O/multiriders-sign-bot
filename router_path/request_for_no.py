@@ -1,3 +1,5 @@
+import asyncio
+
 from aiogram import Router
 from aiogram.fsm.context import FSMContext
 from aiogram.types import CallbackQuery, Message
@@ -23,5 +25,7 @@ async def enter_parent_data(callback: CallbackQuery, state: FSMContext):
         text="Хорошо, пройдите пожалуйста по этой ссылке и оставьте заявку на участие в программе",
         reply_markup=buttons.draw_url_request()
     )
+    await asyncio.sleep(10)
+    await callback.message.answer("Спасибо что оставили заявку")
 
 

@@ -56,12 +56,14 @@ async def show_programs(message: types.Message, state: FSMContext):
 
 @dp.message(filter.Text(buttons.menus_dict["show contacts"]))
 async def show_contacts(message: types.Message):
-    await message.answer(text=
-    """ Почта: info@multiriders.com
-    ВК: https://vk.com/multiriders
-    Офис (Михаил): +7 (921) 550-53-81
-    Анастасия: +7 (921) 392-28-83
-    """)
+    await message.answer(text="Вы можете следить за нами и оставать в курсе новых программ в наших соц сетях. \n\n"
+                              "1. По ссылке можно присоединиться к информационному каналу для родителей."
+                              "Анонсы новых программ, выездов, фотоотчеты и многое другое - https://chat.whatsapp.com/J3UzX8kN61QDURI6oO0sK8 \n"
+                              "2. Мы Вконтакте - фотоотчеты с программ vk.com/multiriders \n"
+                              "3. Инстаграмм - события в режиме онлайн https://www.instagram.com/multiriders_camp/ \n"
+                              "4. Телеграмм канал - https://t.me/multiriders_camp \n\n"
+                              "📞 Михаил (офис): +7 (911) 909-21-12 \n"
+                              "📞 Анастасия: +7 (921) 392-28-83")
 
 
 async def main():
