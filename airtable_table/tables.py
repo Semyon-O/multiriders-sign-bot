@@ -26,14 +26,7 @@ class RequestTable:
     def __init__(self, base_key, api_key):
         self.table = AirtableTable(base_key, 'Заявки', api_key)
 
-    def create_request(self, id_program: int, nsl_parent: str, nsl_child: str, contact_phone: str):
-        fields = {
-            "ФИО_родителя": nsl_parent,
-            "ФИО_ребенка": nsl_child,
-            "Контакты_родителя":contact_phone,
-            "Номер_программы": id_program
-        }
-
+    def create_request(self, fields):
         return self.table.create_record(fields)
 
     def get_all_request(self):
