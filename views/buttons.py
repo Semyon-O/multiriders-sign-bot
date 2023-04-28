@@ -15,15 +15,16 @@ def draw_programs_button(programs: Dict) -> types.InlineKeyboardMarkup:
 
 
 menus_dict = {
-    "show programs": "Посмотреть доступные программы",
-    "show contacts": "Посмотреть контакты лагеря"
+    "show programs": "Наши актуальные программы",
+    "show contacts": "Наши контакты"
 }
 
 
 def draw_menu_button() -> types.ReplyKeyboardMarkup:
     kb = [
-        [types.KeyboardButton(text=menus_dict["show contacts"])],
-        [types.KeyboardButton(text=menus_dict["show programs"])]
+        [types.KeyboardButton(text=menus_dict["show programs"])],
+        [types.KeyboardButton(text=menus_dict["make request"])],
+        [types.KeyboardButton(text=menus_dict["show contacts"])]
     ]
     keyboard = types.ReplyKeyboardMarkup(
         keyboard=kb,
@@ -42,13 +43,13 @@ def draw_yes_no():
 
 
 def draw_make_request_buttons(id_program):
-    kb = [[types.InlineKeyboardButton(text="Оставить заявку", callback_data=f"request:{id_program}")]]
+    kb = [[types.InlineKeyboardButton(text="Заполнить заявку", callback_data=f"request:{id_program}")]]
     keyboard = types.InlineKeyboardMarkup(inline_keyboard=kb)
     return keyboard
 
 
 def draw_url_request():
-    kb = [[types.InlineKeyboardButton(text="Оставить заявку", url="https://multiriders.com/request-summer")]]
+    kb = [[types.InlineKeyboardButton(text="Заполнить заявку", url="https://multiriders.com/request-summer")]]
     keyboard = types.InlineKeyboardMarkup(inline_keyboard=kb)
     return keyboard
 
