@@ -19,9 +19,9 @@ def draw_programs_button(programs: Dict, action: str) -> types.InlineKeyboardMar
 
 
 menus_dict = {
-    "show programs": "Наши актуальные программы",
-    "make request": "Заполнить заявку",
-    "show contacts": "Наши контакты",
+    "show programs": "Узнать больше о программах",
+    "make request": "Оставить заявку на запись",
+    "show contacts": "Контакты",
 }
 
 

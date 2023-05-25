@@ -15,7 +15,7 @@ router = Router()
 async def show_program_info(callback_query: CallbackQuery):
     program_id = callback_query.data.split(":")[-1]
     program = show_program_cache(program_id)
-    print(program)
+    # print(program)
     start_form = callbacks.RequestClientCallbackData(action="start_form", program_id=program_id)
     await callback_query.message.answer(text=f"""
     <b>{program["fields"]["Название_программы"]}</b>\n
@@ -29,6 +29,6 @@ async def show_program_info(callback_query: CallbackQuery):
 @router.callback_query(callbacks.RequestClientCallbackData.filter(F.action == "start_form"))
 async def creating_request(callback: CallbackQuery):
     program_id = callback.data.split(":")[-1]
-    await callback.message.answer("Ваш ребенок ездил в лагерь?", reply_markup=buttons.draw_yes_no(program_id))
+    await callback.message.answer("Ваш ребенок ездил на наши программы MULTIRIDERS CAMP?", reply_markup=buttons.draw_yes_no(program_id))
 
 
