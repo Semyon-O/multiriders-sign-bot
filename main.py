@@ -30,7 +30,7 @@ async def welcome_start(message: types.Message):
 async def show_programs(message: types.Message):
     program_list = controllers.get_all_programs()
     # pprint.pprint(program_list)
-    await message.answer(text="Нажмите на интересующуюся программу для просмотра анонса",
+    await message.answer(text="Нажмите на интересующую программу для просмотра анонса",
                          reply_markup=buttons.draw_programs_button(program_list, "show_data"))
 
 
@@ -41,10 +41,10 @@ async def show_contacts(message: types.Message):
         "• Информационный канал в WA для родителей: <a href='https://chat.whatsapp.com/J3UzX8kN61QDURI6oO0sK8'>присоединиться</a>\n"
         "• Канал в TG: <a href='https://t.me/multiriders_camp'>присоединиться</a>\n"
         "• Мы во Вконтакте: <a href='https://vk.com/multiriders'>фотографии с программ, видео и многое другое</a>\n"
-        "• В запрещенной социальной сети:<a href='https://t.me/multiriders_camp'>в режиме online</a>\n"
+        "• В запрещенной социальной сети: <a href='https://t.me/multiriders_camp'>в режиме online</a>\n"
         "• Наш сайт: <a href='https://www.multiriders.com'>ссылка</a>\n\n"
-        "📞 <a href='https://t.me/MikhailStep'>Михаил</a> офис, +7 (911) 909-21-12\n"
-        "📞 Анастасия, +7 (921) 392-28-83\n"
+        "☎ <a href='https://t.me/MikhailStep'>Михаил</a> (офис), +7 (911) 909-21-12\n"
+        "☎ Анастасия, +7 (921) 392-28-83\n"
     )
     formatted_text = text
     await message.answer(

@@ -24,7 +24,6 @@ def get_all_programs():
     programs = tables.ProgramsTable(acf.base_token, acf.api_token)
     # TODO: Костыль. Нужно сделать инкапсуляция класса Airtable.
     all_programs = programs.table.airtable.get_all(sort=[('Даты_начала_программы', 'asc')])
-    pprint.pprint(all_programs)
     program_list = {}
     for program in all_programs:
         program_list[program["id"]] = program["fields"]["Название_программы"]

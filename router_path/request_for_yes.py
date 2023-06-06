@@ -61,7 +61,7 @@ async def finishing_entering(message: Message, state: FSMContext):
     new_request = tables.RequestTable(cfg.base_token, cfg.api_token)
     new_request.create_request(fields)
     await message.answer("Спасибо за оставленную заявку!\n"
-                         "В ближайшее время мы с Вами свяжемся и уточним детали."
+                         "В ближайшее время мы с Вами свяжемся и уточним детали. "
                          "Хорошего дня!")
     # print(str(fields))
     await state.clear()
